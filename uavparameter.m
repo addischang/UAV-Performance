@@ -1,13 +1,11 @@
 function removal = uavparameter( InputHeight )
 % UAVPARAMETER.M
 %   First  edtion : 05-Apr-2015 01:37:56
-%   Lasted edtion : 05-Apr-2015 01:37:56
+%   Lasted edtion : 05-Apr-2015 01:51:00
 %
 % DESCRIPTION
-%   This file is the main file for "UAV-Performance". This is a software 
-%   which provide performance parameters analysis for fixed-wing unmanned 
-%   aerial vehicle. But every thing are still in develop.
-%
+%   This is a file which store global variables. Those subfunction will 
+%   catch the global variables to compute parameters which we want.   
 % COPPYRIGHT
 %   Copy right 2015 UAV Laboratory, Dept. of Aerospace Engineering, Tamkang
 %   University.
