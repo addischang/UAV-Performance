@@ -2,5 +2,6 @@ This is a software which provide performance parameters analysis for fixed-wing 
 
 Chang, Wei-Chieh
 	addischang1991@gmail.com
-Huang,Kuan-Lin
+
+Huang,Kuan-Lin 
 	breakfastho@yahoo.com.tw
