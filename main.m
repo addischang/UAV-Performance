@@ -23,9 +23,10 @@
 clear;clc;
 
 % Input the desired height which you want.
-Height = 100;
+Height = linspace( 0, 5000, 3 );
 
-rho = uavparameter(100);
+% Called function 'uavparameter' 
+uavparameter( Height );
 
 disp('UAV');
 disp('Performance');
