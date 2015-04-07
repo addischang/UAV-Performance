@@ -1,4 +1,4 @@
-% thrustrequired.m
+% uavthrustrequired.m
 %   First  edition : 07-Apr-2015 10:37:56
 %   Lasted edition : 07-Apr-2015 10:37:56
 %
@@ -18,15 +18,24 @@
 %     lightning.539418@gmail.com
 
 % Clear the command window and data.
-clear;clc;
+clear;clc;clf;
 
 rho_inf = 1.2133;
-V_inf = linspace( 0, 15, 20 );
-S = 0.8929^2;
+V_inf = linspace( 0, 25, 25 );
+S = 0.8929;
+b = 2.5;
 CD_0 = 0.152;
+e = 0.84;
+W = 18.75;
+AR = b^2 / S;
 K_3 = 1 / ( pi * e * AR );
-K_1 = (1/3) * K_3
-CD = CD_0 + K * CL^2;
-D_0 = (1/2) * rho_inf .* V_inf.^2 * S * CD;
-D_L = (1/2) * rho_inf .* V_inf.^2 * S * K * CL^2;
+K_1 = (1/3) * K_3;
+K = K_1 + K_3;
+CL = W ./ ((1/2) * rho_inf .* V_inf.^2 * S);
+CD = CD_0 + K * CL.^2;
+D_0 = (1/2) * rho_inf .* V_inf.^2 * S .* CD;
+D_L = (1/2) * rho_inf .* V_inf.^2 * S * K .* CL.^2;
 D = D_0 + D_L;
+plot( V_inf, D_0, '--m', V_inf, D_L, '--r', V_inf, D );
+grid on
+legend('D0','DL','D')
