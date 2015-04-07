@@ -1,7 +1,7 @@
 function removal = uavparameter( InputHeight )
 % UAVPARAMETER.m
 %   First  edition : 05-Apr-2015 01:37:56
-%   Lasted edition : 07-Apr-2015 22:04:03
+%   Lasted edition : 08-Apr-2015 01:04:03
 %   Lasted modify  : Chang, Wei-Chieh
 %
 % DESCRIPTION
