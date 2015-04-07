@@ -26,7 +26,7 @@ clear;clc;
 Height = linspace( 0, 5000, 3 );
 
 % Called function 'uavparameter' 
-uavparameter( Height );
+h = uavparameter( Height )
 
 disp('UAV');
 disp('Performance');
