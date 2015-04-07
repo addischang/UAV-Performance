@@ -21,22 +21,34 @@ function removal = uavparameter( InputHeight )
 %   Liu, Yu-Lin 
 %     lightning.539418@gmail.com
 
-global rho g W
-
-% SPECIFICATIONS
-%   The specification of aircraft which we want to analysis. Those data are
-%   necessary for performance analysis.
-mass = 1.5;
 
 % ATMOSPHERE DATA
 %   The standard atmosphere data can be identified by the subfunction stdatm  
 %   which providing standard atmosphere data computation.
+global rho_inf g_inf T_inf 
 atm = stdatm( InputHeight );
-rho = atm( :, 6 );
-g = atm( :, 2 );
-W = mass .* g;
+g_inf = atm( :, 2 );
+T_inf = atm( :, 3 );
+a_inf = 331 + 0.6 .* ( 273 - T_inf ); 
+rho_inf = atm( :, 6 );
 
-removal = W;
+
+% SPECIFICATIONS
+%   The specification of aircraft which we want to analysis. Those data are
+%   necessary for performance analysis.
+global W S AR
+mass = 1.5;
+W = mass .* g_inf;
+S = 0.8929;
+b = 2.5;
+AR = b^2 / S;
+
+% PROPULSION
+% The specification engine and propellers. Those parameters will dominate
+% the power aviliable, thrust aviliable, etc...
+
+removal = a_inf;
+
 % Parameter explanation
 % mass of aircraft : mass
 % angle of attack : alpha
