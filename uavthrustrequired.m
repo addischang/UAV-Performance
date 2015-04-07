@@ -33,9 +33,12 @@ K_1 = (1/3) * K_3;
 K = K_1 + K_3;
 CL = W ./ ((1/2) * rho_inf .* V_inf.^2 * S);
 CD = CD_0 + K * CL.^2;
-D_0 = (1/2) * rho_inf .* V_inf.^2 * S .* CD;
+D_0 = (1/2) * rho_inf .* V_inf.^2 * S .* CD_0;
 D_L = (1/2) * rho_inf .* V_inf.^2 * S * K .* CL.^2;
 D = D_0 + D_L;
+D_min = min(D)
 plot( V_inf, D_0, '--m', V_inf, D_L, '--r', V_inf, D );
 grid on
 legend('D0','DL','D')
+xlabel('Velocity V_inf m/s')
+ylabel('Drag kg')
