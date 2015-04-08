@@ -26,7 +26,7 @@ global W S_fw S_bw b_fw b_bw AR_fw AR_bw e_fw e_bw
 
 % The main algorithm.
 CL = 1.25;
-V_stall= sqrt( 2 * W( 1, 1 ) ./  ( rho_inf .* ( 2 * S_fw ) .* CL ) );
+V_stall= sqrt( 2 * W( 1, 1 ) ./  ( rho_inf .* ( S_fw + S_bw ) .* CL ) );
 
 % Plot the figure.
 figure( CouF )
