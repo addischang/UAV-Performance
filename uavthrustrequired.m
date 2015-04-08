@@ -1,6 +1,7 @@
 % uavthrustrequired.m
 %   First  edition : 07-Apr-2015 10:37:56
-%   Lasted edition : 07-Apr-2015 10:37:56
+%   Lasted edition : 08-Apr-2015 21:47:54
+%   Lasted modify : Chang, Wei-Chieh 
 %
 % DESCRIPTION
 %   This is the file calculating the thrust required.
@@ -19,6 +20,10 @@
 
 % Clear the command window and data.
 clear;clc;clf;
+
+% Get the global parameters from parameters list.
+global rho_inf g_inf T_inf 
+global W S_fw S_bw b_fw b_bw AR_fw AR_bw e_fw e_bw
 
 rho_inf = 1.2133;
 V_inf = linspace( 0, 25, 25 );

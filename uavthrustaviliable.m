@@ -1,7 +1,7 @@
 % uavthrustaviliable.m
 %   First  edtion : 08-Apr-2015 20:38:27
-%   Lasted edtion : 08-Apr-2015 20:38:27
-%   Lasted modify :  Huang,Kuan-Lin
+%   Lasted edtion : 08-Apr-2015 21:47:54
+%   Lasted modify : Chang, Wei-Chieh 
 %
 % DESCRIPTION
 %   This is a file to compute max thrust available for fixed-wing UAV.
@@ -17,6 +17,10 @@
 %     breakfastho@yahoo.com.tw
 %   Liu, Yu-Lin 
 %     lightning.539418@gmail.comclear;clc;clf;
+
+% Get the global parameters from parameters list.
+global rho_inf g_inf T_inf 
+global W S_fw S_bw b_fw b_bw AR_fw AR_bw e_fw e_bw
 
 rho_inf = 1.2133;
 V_inf = linspace( 0, 25, 25 );

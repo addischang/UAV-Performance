@@ -1,7 +1,7 @@
 function removal = uavstall( InputHeight )
 % UAVSTALL.M
 %   First  edtion : 05-Apr-2015 22:55:27
-%   Lasted edtion : 05-Apr-2015 22:55:27
+%   Lasted edtion : 08-Apr-2015 21:47:54
 %   Lasted modify : Chang, Wei-Chieh
 %
 % DESCRIPTION
@@ -19,7 +19,9 @@ function removal = uavstall( InputHeight )
 %   Liu, Yu-Lin 
 %     lightning.539418@gmail.com
 
-global AirDensity Velocity Serf Weight CL
+% Get the global parameters from parameters list.
+global rho_inf g_inf T_inf 
+global W S_fw S_bw b_fw b_bw AR_fw AR_bw e_fw e_bw
 
 Qinf = 0.5 * AirDensity * Velocity^2;
 removal = sqrt( Weight / ( Qinf .* Serf .* CL ) );  
