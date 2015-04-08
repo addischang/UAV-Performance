@@ -3,8 +3,8 @@
 %   Lasted edtion : 05-Apr-2015 01:37:56
 %
 % DESCRIPTION
-%   This file is the main file for "UAV-Performance". This is a software 
-%   which provide performance parameters analysis for fixed-wing unmanned 
+%   This file is the main file for "UAV-Performance". This is a software
+%   which provide performance parameters analysis for fixed-wing unmanned
 %   aerial vehicle. But every thing are still in develop.
 %
 % COPPYRIGHT
@@ -12,21 +12,19 @@
 %   University.
 %
 % AUTHOOR INFORMACTIONS
-%   Chang, Wei-Chieh 
+%   Chang, Wei-Chieh
 %    addischang1991@gmail.com
-%   Huang,Kuan-Lin 
+%   Huang,Kuan-Lin
 %     breakfastho@yahoo.com.tw
-%   Liu, Yu-Lin 
+%   Liu, Yu-Lin
 %     lightning.539418@gmail.com
 
 % Clear the command window and data.
 clear;clc;
 
 % Input the desired height which you want.
-Height = linspace( 0, 5000, 3 );
+Height = linspace( 0, 3000, 7 );
 
-% Called function 'uavparameter' 
-h = uavparameter( Height )
-
-disp('UAV');
-disp('Performance');
+% Called function 'uavparameter'
+h = uavparameter( Height );
+uavstall;

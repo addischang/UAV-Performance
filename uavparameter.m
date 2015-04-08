@@ -1,12 +1,12 @@
 function removal = uavparameter( InputHeight )
-% UAVPARAMETER.m
+% UAVPARAMETER
 %   First  edition : 05-Apr-2015 01:37:56
 %   Lasted edition : 08-Apr-2015 21:47:54
 %   Lasted modify  : Chang, Wei-Chieh
 %
 % DESCRIPTION
-%   This file is the main file for "UAV-Performance". This is a software 
-%   which provides performance parameters analysis for fixed-wing unmanned 
+%   This file is the main file for "UAV-Performance". This is a software
+%   which provides performance parameters analysis for fixed-wing unmanned
 %   aerial vehicle. But everything is still in developing stage.
 %
 % COPYRIGHT
@@ -14,39 +14,53 @@ function removal = uavparameter( InputHeight )
 %   University.
 %
 % AUTHOR INFORMATIONS
-%   Chang, Wei-Chieh 
+%   Chang, Wei-Chieh
 %    addischang1991@gmail.com
-%   Huang,Kuan-Lin 
+%   Huang,Kuan-Lin
 %     breakfastho@yahoo.com.tw
-%   Liu, Yu-Lin 
+%   Liu, Yu-Lin
 %     lightning.539418@gmail.com
 
 
+% COUNTER
+%   The counter is to declare scale or size for input parameters. It will
+%   be helpful while you take integations. If you want to know more detail,
+%   please check the parameter explanation in the end of this file.
+global SizH LenH CouF CouH
+SizH = size( InputHeight );
+LenH = length( InputHeight );
+CouH = 1;
+CouF = 1;
+
+
+
 % ATMOSPHERE DATA
-%   The standard atmosphere data can be identified by the subfunction stdatm  
+%   The standard atmosphere data can be identified by the subfunction stdatm
 %   which providing standard atmosphere data computation.
-global rho_inf g_inf T_inf 
+global rho_inf h_inf g_inf T_inf
 atm = stdatm( InputHeight );
+h_inf = atm( :, 1 );
 g_inf = atm( :, 2 );
 T_inf = atm( :, 3 );
-a_inf = 331 + 0.6 .* ( 273 - T_inf ); 
+a_inf = 331 + 0.6 .* ( 273 - T_inf );
 rho_inf = atm( :, 6 );
 
 
 % SPECIFICATIONS
 %   The specification of aircraft which we want to analysis. Those data are
-%   necessary for performance analysis.
+%   necessary for performance analysis. If you want to know more detail,
+%   please check the parameter explanation in the end of this file.
 global W S_fw S_bw b_fw b_bw AR_fw AR_bw e_fw e_bw
 mass = 18.75;
 W = mass .* g_inf;
-S_fw = 0.8929; 
-S_bw = 0.8929;  
+S_fw = 0.8929;
+S_bw = 0.8929;
 b_fw = 2.5;
 b_bw = 2.5;
 e_fw = 0.8;
 e_bw = 0.8;
-Cr_fw = 0.48979; 
-Cr_bw = 0.48979; 
+Cr_fw = 0.48979;
+Cr_bw = 0.48979;
 Ct_fw = 0.1959;
 Ct_bw = 0.1959;
 AR_fw = b_fw^2 / S_fw;
@@ -54,9 +68,10 @@ AR_bw = b_bw^2 / S_bw;
 
 % PROPULSION
 %   The specification engine and propellers. Those parameters will dominate
-%   the power aviliable, thrust aviliable, etc...
+%   the power aviliable, thrust aviliable. If you want to know more detail,
+%   please check the parameter explanation in the end of this file.
 
-removal = W;
+removal = rho_inf;
 
 % Parameter explanation
 % mass of aircraft : mass
@@ -73,6 +88,7 @@ removal = W;
 % drag coefficient : CD
 % moment coefficient : CM
 % dynamic pressure : q_inf
+% geometory height : h_inf
 % Reynolds number : Re
 % chord length : c
 % Mach number : M_inf
@@ -102,8 +118,8 @@ removal = W;
 % advance ratio : J
 % pitch angle : beta
 % weight of fuel burned per unit thrust per unit time : c_t
-% Reference area for forward wing : S_fw 
-% Reference area for backard wing : S_bw 
+% Reference area for forward wing : S_fw
+% Reference area for backard wing : S_bw
 % Span for forward wing : b_fw
 % Span for backard wing : b_bw
 % Wing root chord for forward wing : Cr_fw
@@ -114,3 +130,7 @@ removal = W;
 % Aspect ratio for backard wing : AR_bw
 % Efficiency for forward wing : e_fw
 % Efficiency for backard wing : e_bw
+% Size of input height : SizH
+% Length of input height : LenH
+% Counter of height : CouH
+% Counter of figure : CouF

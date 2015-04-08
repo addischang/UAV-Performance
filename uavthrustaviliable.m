@@ -19,10 +19,11 @@
 %     lightning.539418@gmail.comclear;clc;clf;
 
 % Get the global parameters from parameters list.
-global rho_inf g_inf T_inf 
-global W S_fw S_bw b_fw b_bw AR_fw AR_bw e_fw e_bw
+% global SizH LenH CouF CouH
+% global rho_inf h_inf g_inf T_inf
+% global W S_fw S_bw b_fw b_bw AR_fw AR_bw e_fw e_bw
 
-rho_inf = 1.2133;
+
 V_inf = linspace( 0, 25, 25 );
 S = 0.8929;
 b = 2.5;

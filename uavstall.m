@@ -1,4 +1,4 @@
-function removal = uavstall( InputHeight )
+function removal = uavstall
 % UAVSTALL.M
 %   First  edtion : 05-Apr-2015 22:55:27
 %   Lasted edtion : 08-Apr-2015 21:47:54
@@ -12,16 +12,33 @@ function removal = uavstall( InputHeight )
 %   University.
 %
 % AUTHOORS INFORMACTION
-%   Chang, Wei-Chieh 
+%   Chang, Wei-Chieh
 %    addischang1991@gmail.com
-%   Huang,Kuan-Lin 
+%   Huang,Kuan-Lin
 %     breakfastho@yahoo.com.tw
-%   Liu, Yu-Lin 
+%   Liu, Yu-Lin
 %     lightning.539418@gmail.com
 
 % Get the global parameters from parameters list.
-global rho_inf g_inf T_inf 
+global SizH LenH CouF CouH
+global rho_inf h_inf g_inf T_inf
 global W S_fw S_bw b_fw b_bw AR_fw AR_bw e_fw e_bw
 
-Qinf = 0.5 * AirDensity * Velocity^2;
-removal = sqrt( Weight / ( Qinf .* Serf .* CL ) );  
+% The main algorithm.
+CL = 1.25;
+V_stall= sqrt( 2 * W( 1, 1 ) ./  ( rho_inf .* ( 2 * S_fw ) .* CL ) );
+
+% Plot the figure.
+figure( CouF )
+CouF = CouF + 1;
+f = plot( V_stall, h_inf, '-o' );
+set( f, 'linewidth', 1.7 );
+xlabel( 'Velocity (m/s)' );
+ylabel( 'Altitude (m)' );
+legend( 'Stall Velocity' );
+grid on
+
+% Display some useful informations at command windows.
+disp( [ 'The stall velocity at ' num2str( h_inf( CouH, 1 ) ) '(m) is ' ...
+        num2str( V_stall( CouH, 1 ) ) '(m/s)'] )
+removal = 0;
