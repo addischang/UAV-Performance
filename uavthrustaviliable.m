@@ -1,5 +1,22 @@
-% uavthrustaviliable
-clear;clc;clf;
+% uavthrustaviliable.m
+%   First  edtion : 08-Apr-2015 20:38:27
+%   Lasted edtion : 08-Apr-2015 20:38:27
+%   Lasted modify :  Huang,Kuan-Lin
+%
+% DESCRIPTION
+%   This is a file to compute max thrust available for fixed-wing UAV.
+%
+% COPPYRIGHT
+%   Copy right 2015 UAV Laboratory, Dept. of Aerospace Engineering, Tamkang
+%   University.
+%
+% AUTHOORS INFORMACTION
+%   Chang, Wei-Chieh 
+%    addischang1991@gmail.com
+%   Huang,Kuan-Lin 
+%     breakfastho@yahoo.com.tw
+%   Liu, Yu-Lin 
+%     lightning.539418@gmail.comclear;clc;clf;
 
 rho_inf = 1.2133;
 V_inf = linspace( 0, 25, 25 );
@@ -22,14 +39,15 @@ D_min = min(D)
 
 propeller_efficiency = 0.8;
 %V_inf = linspace( 0, 25, 25 );
-P = 100
+P = 1290 ;
 P_A = propeller_efficiency*P;
 T_A = P_A./V_inf;
-T_max = min(abs(T_A-D))
+[ a b ] = min(abs(T_A-D))
 
 plot( V_inf, D_0, '--m', V_inf, D_L, '--r', V_inf, D ,V_inf,T_A,'c');
 grid on
 legend('D0','DL','D','TA')
 xlabel('Velocity V_inf m/s')
 ylabel('Drag kg & Thrust available')
-%find min(abs(T_A-T))
+
+disp( [ ' Max thrust is ' num2str( a ) '(N) at ' num2str( V_inf( 1, b ) ) '(m/s). ' ]  )
