@@ -39,7 +39,7 @@ D_min = min(D)
 
 propeller_efficiency = 0.8;
 %V_inf = linspace( 0, 25, 25 );
-P = 1290 ;
+P = 1290 ; % OS-MAX-65AX
 P_A = propeller_efficiency*P;
 T_A = P_A./V_inf;
 [ a b ] = min(abs(T_A-D))
