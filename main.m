@@ -23,8 +23,9 @@
 clear;clc;
 
 % Input the desired height which you want.
-Height = linspace( 0, 3000, 7 );
+Height = linspace( 0, 7000, 3 );
 
 % Called function 'uavparameter'
 h = uavparameter( Height );
 uavstall;
+uavloverd;
