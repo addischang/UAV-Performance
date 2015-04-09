@@ -39,6 +39,8 @@ legend( 'Stall Velocity' );
 grid on
 
 % Display some useful informations at command windows.
-disp( [ 'The stall velocity at ' num2str( h_inf( CouH, 1 ) ) '(m) is ' ...
-        num2str( V_stall( CouH, 1 ) ) '(m/s)'] )
+disp( [ 'The stall velocity at ' num2str( V_stall( CouH, 1 ) ) '(m/s) at ' ...
+        num2str( h_inf( CouH, 1 ) ) ' (m) height ' ] )
+    
+% Just return 0    
 removal = 0;
