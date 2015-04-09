@@ -1,8 +1,8 @@
 function removal = uavloverd
 % UAVLOVERD
 %   First  edition : 09-Apr-2015 00:49:08
-%   Lasted edition : 09-Apr-2015 00:49:08
-%   Lasted modify : Chang, Wei-Chieh 
+%   Lasted edition : 09-Apr-2015 19:11:46
+%   Lasted modify : Chang, Wei-Chieh
 %
 % DESCRIPTION
 %   This is the file calculating lift over drag for fixed-wing aircraft.
@@ -12,11 +12,11 @@ function removal = uavloverd
 %   University.
 %
 % AUTHOR INFORMATIONS
-%   Chang, Wei-Chieh 
+%   Chang, Wei-Chieh
 %    addischang1991@gmail.com
-%   Huang,Kuan-Lin 
+%   Huang,Kuan-Lin
 %     breakfastho@yahoo.com.tw
-%   Liu, Yu-Lin 
+%   Liu, Yu-Lin
 %     lightning.539418@gmail.com
 
 % Get the global parameters from parameters list.
@@ -24,24 +24,48 @@ global SizH LenH CouF CouH
 global rho_inf h_inf g_inf T_inf
 global W S_fw S_bw b_fw b_bw AR_fw AR_bw e_fw e_bw
 
-% Main algorithm.
+% Parameter.
 CD0 = 0.0456;
 K = 1 / ( pi * e_fw * AR_fw );
-V_inf = linspace( 3, 8, 50 );
+V_inf = linspace( 3, 25, 50 );
 Q_inf = 0.5 * rho_inf * V_inf.^2;
-Term1 = ( 0.5 * rho_inf * V_inf.^4 .* CD0 ) ./ ( 2 * W( 1, 1 ) / ( S_fw + S_bw ) );
-Term2 = ( 2 * K * W( 1, 1 ) ) ./ ( 0.5 * rho_inf * V_inf.^4 .* ( S_fw + S_bw ) );
-LovD  = 1 ./ ( Term1 + Term2 );
-LovDm = sqrt( 1 / ( 4 * CD0 * K ) );
+CL = W( 1, 1 ) ./ ( Q_inf .* ( S_fw + S_bw ) );
+CD = CD0 + K .* CL.^2;
+
+% Main algorithm.
+LD1 = CL ./ CD;
+LD2 = CL.^(0.5) ./ CD;
+LD3 = CL.^(1.5) ./ CD;
+
+% Seek the maximun value.
+[ AmpLD1 LocLD1 ] = max( LD1( CouH, : ) );
+[ AmpLD2 LocLD2 ] = max( LD2( CouH, : ) );
+[ AmpLD3 LocLD3 ] = max( LD3( CouH, : ) );
+
+% Seek the velocity while  maximun value occure.
+VLD1 = V_inf( 1, LocLD1( CouH, : ) );
+VLD2 = V_inf( 1, LocLD2( CouH, : ) );
+VLD3 = V_inf( 1, LocLD3( CouH, : ) );
 
 % Plot the figure.
 figure( CouF )
 CouF = CouF + 1;
-h = plot( V_inf, LovD( CouH, : ) );
+h = plot( V_inf, LD1( CouH, : ),...
+    V_inf, LD2( CouH, : ),...
+    V_inf, LD3( CouH, : ) );
 set( h, 'linewidth', 1.7 );
-title( ' Lift over Drag ' )
+title( ' Lift over Drag ' );
 xlabel( 'Velocity (m/s)' );
 ylabel( 'L/D' );
+legend( 'C_{L} / C_{D}',...
+    'C_{L}^{1/2} / C_{D}',...
+    'C_{L}^{3/2} / C_{D}' );
 grid on
 
+% Display some useful informations at command windows.
+disp( [ 'The maximum L/D is ' num2str( AmpLD1 ) ' while ' ...
+    num2str( VLD1 ) '(m/s) at ' ...
+    num2str( h_inf( CouH, 1 ) ) '(m) height ' ] )
+
+% Just return 0
 removal = 0;
