@@ -28,7 +28,7 @@ propeller_efficiency = 0.8;
 V_inf = linspace( 5, 21, 25 );
 P = 1290 ; % OS-MAX-65AX power
 P_A = propeller_efficiency * P; %aircraft performance page228_5.48
-T_A = P_A./V_inf;
+T_A = P_A./V_inf ;
 [ a b ] = min(abs(T_A-D))
 global T_A
 
