@@ -55,11 +55,9 @@ legend('D0','DL','D')
 xlabel('Velocity (m/s)')
 ylabel('Drag (N)')
 
-<<<<<<< HEAD
+
 T_Req = D;
-=======
 disp( [ ' Minimum darg is ' num2str( a ) '(N) at ' num2str( V_inf( 1, b ) ) '(m/s). ' ]  )
->>>>>>> 2c88302ca0b7018739a00d842217c674845927cf
 
 global T_Req
 T_Req = D;

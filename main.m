@@ -28,12 +28,13 @@ Height = linspace( 0, 7000, 3 );
 % Called function 'uavparameter'
 h = uavparameter( Height );
 
+uavstall
+uavloverd
 uavthrustrequired
-<<<<<<< HEAD
-uavpowerrequired
-=======
 uavthrustaviliable
+uavpowerrequired
+uavenvelope
 
->>>>>>> 2c88302ca0b7018739a00d842217c674845927cf
+
 % uavstall;
 % uavloverd;

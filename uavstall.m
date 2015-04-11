@@ -41,6 +41,9 @@ grid on
 % Display some useful informations at command windows.
 disp( [ 'The stall velocity at ' num2str( V_stall( CouH, 1 ) ) '(m/s) at ' ...
         num2str( h_inf( CouH, 1 ) ) ' (m) height ' ] )
+
+% Return the variable as global
+global V_stall
     
 % Just return 0    
 removal = 0;
