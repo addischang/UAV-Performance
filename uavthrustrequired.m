@@ -24,7 +24,7 @@ global SizH LenH CouF CouH
 global rho_inf h_inf g_inf T_inf
 global W S_fw S_bw b_fw b_bw AR_fw AR_bw e_fw e_bw
 
-CD_0 = 0.025
+CD_0 = 0.025;
 
 % Declare range. 
 V_inf = linspace( 5, 25, 25 );
@@ -55,9 +55,10 @@ legend('D0','DL','D')
 xlabel('Velocity (m/s)')
 ylabel('Drag (N)')
 
-T_Req = D( CouH, : );
+disp( [ ' Minimum darg is ' num2str( a ) '(N) at ' num2str( V_inf( 1, b ) ) '(m/s). ' ]  )
 
 global T_Req
+T_Req = D;
 
 
-disp( [ ' Minimum darg is ' num2str( a ) '(N) at ' num2str( V_inf( 1, b ) ) '(m/s). ' ]  )
+
