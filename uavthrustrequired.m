@@ -55,7 +55,7 @@ legend('D0','DL','D')
 xlabel('Velocity (m/s)')
 ylabel('Drag (N)')
 
-T_Req = D( CouH, : );
+T_Req = D;
 
 global T_Req
 
