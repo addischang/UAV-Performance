@@ -23,7 +23,7 @@ function removal =  uavthrustaviliable
 % global SizH LenH CouF CouH
 % global rho_inf h_inf g_inf T_inf
 % global W S_fw S_bw b_fw b_bw AR_fw AR_bw e_fw e_bw
-global T_R
+global T_Rew
 propeller_efficiency = 0.8;
 V_inf = linspace( 5, 21, 25 );
 P = 1290 ; % OS-MAX-65AX power
@@ -32,9 +32,9 @@ T_A = P_A./V_inf;
 [ a b ] = min(abs(T_A-D))
 global T_A
 
-plot( V_inf, D_0, '--m', V_inf, D_L, '--r', V_inf, D ,V_inf,T_A,'c');
+plot( V_inf, D ,V_inf,T_A,'c');
 grid on
-legend('D0','DL','D','TA')
+legend('D','TA')
 xlabel('Velocity V_inf m/s')
 ylabel('Drag kg & Thrust available')
 
