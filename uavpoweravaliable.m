@@ -1,4 +1,4 @@
-% MAIN.M
+% .M
 %   First  edtion : 05-Apr-2015 01:37:56
 %   Lasted edtion : 05-Apr-2015 01:37:56
 %
@@ -18,17 +18,3 @@
 %     breakfastho@yahoo.com.tw
 %   Liu, Yu-Lin
 %     lightning.539418@gmail.com
-
-% Clear the command window and data.
-clear;clc;
-
-% Input the desired height which you want.
-Height = linspace( 0, 7000, 3 );
-
-% Called function 'uavparameter'
-h = uavparameter( Height );
-
-uavthrustrequired
-
-% uavstall;
-% uavloverd;

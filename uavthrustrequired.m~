@@ -26,7 +26,8 @@ global W S_fw S_bw b_fw b_bw AR_fw AR_bw e_fw e_bw
 
 CD_0 = 0.025
 
-% Declare range. 
+
+%
 V_inf = linspace( 5, 25, 25 );
 Q_inf = 0.5 .* rho_inf * V_inf.^2; 
 K = 1 / ( pi * e_fw * AR_fw );
@@ -55,9 +56,6 @@ legend('D0','DL','D')
 xlabel('Velocity (m/s)')
 ylabel('Drag (N)')
 
-T_Req = D( CouH, : );
-
-global T_Req
 
 
 disp( [ ' Minimum darg is ' num2str( a ) '(N) at ' num2str( V_inf( 1, b ) ) '(m/s). ' ]  )
