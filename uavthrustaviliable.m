@@ -25,7 +25,7 @@ global SizH LenH CouF CouH
 global rho_inf h_inf g_inf T_inf
 global W S_fw S_bw b_fw b_bw AR_fw AR_bw e_fw e_bw
 global P eta_p
-
+global T_Req
 
 % Declare the range of velocity.
 V_inf = linspace( 5, 25, 25 );
@@ -68,6 +68,6 @@ ylabel('Thrust (N)')
 disp( [ ' Max thrust is ' num2str( a( 1, CouH ) ) '(N) while '...
           num2str( V_inf( 1, b ) ) '(m/s). ' ])
 
-
+global T_A
 % Just return
 removal = V_max;
