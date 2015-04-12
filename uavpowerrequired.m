@@ -1,4 +1,4 @@
-function removal = uavpowerrequired( Vinf_i, Vinf_f )
+function removal = uavpowerrequired( T_Req )
 % uavpowerrequired.m
 %   First  edition : 11-Apr-2015 14:22:05
 %   Lasted edition : 12-Apr-2015 00:57:51
@@ -23,22 +23,20 @@ function removal = uavpowerrequired( Vinf_i, Vinf_f )
 % any input augment, then the initial and final value of climb velocity will
 % be defult. Else if there have one input data, then we just define the final
 % value of climb velocity.
-if nargin == 0
-    Vinf_i = 5;
-    Vinf_f = 25;
-elseif nargin == 1
-    Vinf_f = 25
-end
+% if nargin == 0
+%     Vinf_i = 5;
+%     Vinf_f = 25;
+% elseif nargin == 1
+%     Vinf_f = 25
+% end
 
 % Declare range.
-V_inf = linspace( Vinf_i, Vinf_f, 25 );
+V_inf = linspace( 5, 25, 25 );
 
 % Get the global parameters from parameters list.
 global SizH LenH CouF CouH
 global rho_inf h_inf g_inf T_inf
 global W S_fw S_bw b_fw b_bw AR_fw AR_bw e_fw e_bw
-global T_Req
-global P_Req
 
 
 % Declare the power required.

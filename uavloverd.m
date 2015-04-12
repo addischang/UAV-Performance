@@ -27,7 +27,7 @@ global CD_0
 
 % Parameter.
 K = 1 / ( pi * e_fw * AR_fw );
-V_inf = linspace( 3, 25, 25 );
+V_inf = linspace( 5, 25, 25 );
 Q_inf = 0.5 * rho_inf * V_inf.^2;
 CL = W( 1, 1 ) ./ ( Q_inf .* ( S_fw + S_bw ) );
 CD = CD_0 + K .* CL.^2;

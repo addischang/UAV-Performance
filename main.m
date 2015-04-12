@@ -30,9 +30,19 @@ uavparameter( Height );
 
 
 % 
+<<<<<<< HEAD
 % vst = uavstall;
 % ld = uavloverd;
 % tr = uavthrustrequired;
 % [ vmax ta ] = uavthrustaviliable( tr );
 % % k = uavpowerrequired;
 % % uavenvelope( vst, vmax );
+=======
+vst = uavstall;
+ld = uavloverd;
+tr = uavthrustrequired;
+[ vmax ta ] = uavthrustaviliable( tr );
+uavpowerrequired( tr );
+uavenvelope( vst, vmax );
+uavlevelturn( ld, ta );
+>>>>>>> origin/master
