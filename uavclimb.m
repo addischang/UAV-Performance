@@ -34,19 +34,20 @@ RC1 = (T_A/W(1,1));
 RC2 = (0.5.*rho_inf*(V_inf.^2).*( ( S_fw + S_bw ) / W(1,1 ) ) * CD_0 );
 RC3 = W(1,1)*2*k ./ ( (S_fw+ S_bw).*rho_inf*V_inf.^2 );
 
-RC = V_inf .* (RC1-RC2(1,:)-RC3(1,:))
-plot(V_inf, RC, V_inf, ones( size( RC ) ), '-.r')
+RC = V_inf .* (RC1-RC2(1,:)-RC3(1,:));
+figure( CouF )
+CouF = CouF + 1;
+plot(V_inf, RC, V_inf, ones( size( RC ) ), '-.r');
 grid on
 % max climb angle
 
 T_max =29.225;
 CL_CD_max = 10;
-max_climb_thi = asin((T_max/W) - (1/CL_CD_max))
+max_climb_thi = asin((T_max/W) - (1/CL_CD_max));
 
 %V_thi_max
-V_thi_max = ( 4* ( W/ (S_fw +S_bw) *k)) /( rho_inf * eta_p * (P/W) )
+V_thi_max = ( 4* ( W(1,1)/ (S_fw +S_bw) *k)) /( rho_inf * eta_p * (P/W) )
 
-V_thi_max1 = square((2*W*cos(max_climb_thi)*(k^0.5))/rho_inf*(S_fw +S_bw)*( CD_0^0.5))
 % max rate of climb
 
 % time to climb
