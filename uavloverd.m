@@ -1,4 +1,4 @@
-function removal = uavloverd
+function [ LD1 ] = uavloverd
 % UAVLOVERD
 %   First  edition : 09-Apr-2015 00:49:08
 %   Lasted edition : 12-Apr-2015 00:57:51
@@ -27,7 +27,7 @@ global CD_0
 
 % Parameter.
 K = 1 / ( pi * e_fw * AR_fw );
-V_inf = linspace( 3, 25, 50 );
+V_inf = linspace( 3, 25, 25 );
 Q_inf = 0.5 * rho_inf * V_inf.^2;
 CL = W( 1, 1 ) ./ ( Q_inf .* ( S_fw + S_bw ) );
 CD = CD_0 + K .* CL.^2;
@@ -66,6 +66,3 @@ grid on
 disp( [ 'The maximum L/D is ' num2str( AmpLD1 ) ' while ' ...
         num2str( VLD1 ) '(m/s) at ' ...
         num2str( h_inf( CouH, 1 ) ) '(m) height ' ] )
-
-% Just return 0
-removal = 0;

@@ -31,9 +31,8 @@ uavparameter( Height );
 
 % 
 vst = uavstall;
-uavloverd;
+ld = uavloverd;
 tr = uavthrustrequired;
-vmax = uavthrustaviliable( tr );
-k = uavpowerrequired;
-uavenvelope( vst, vmax );
-
+[ vmax ta ] = uavthrustaviliable( tr );
+% k = uavpowerrequired;
+% uavenvelope( vst, vmax );
