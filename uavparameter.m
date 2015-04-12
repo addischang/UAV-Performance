@@ -1,7 +1,7 @@
 function removal = uavparameter( InputHeight )
 % UAVPARAMETER
 %   First  edition : 05-Apr-2015 01:37:56
-%   Lasted edition : 08-Apr-2015 21:47:54
+%   Lasted edition : 12-Apr-2015 00:57:51
 %   Lasted modify  : Chang, Wei-Chieh
 %
 % DESCRIPTION
@@ -33,11 +33,10 @@ CouH = 1;
 CouF = 1;
 
 
-
 % ATMOSPHERE DATA
 %   The standard atmosphere data can be identified by the subfunction stdatm
 %   which providing standard atmosphere data computation.
-global rho_inf h_inf g_inf T_inf
+global rho_inf h_inf g_inf a_inf T_inf
 atm = stdatm( InputHeight );
 h_inf = atm( :, 1 );
 g_inf = atm( :, 2 );
@@ -52,7 +51,7 @@ rho_inf = atm( :, 6 );
 %   please check the parameter explanation in the end of this file.
 global W S_fw S_bw b_fw b_bw AR_fw AR_bw e_fw e_bw
 mass = 18.75;
-W = mass * g_inf( 1, 1);
+W = mass * g_inf( 1, 1 );
 S_fw = 0.8929;
 S_bw = 0.8929;
 b_fw = 2.5;
@@ -66,11 +65,24 @@ Ct_bw = 0.1959;
 AR_fw = b_fw^2 / S_fw;
 AR_bw = b_bw^2 / S_bw;
 
+
+% AERODYNAMICS
+%   The aerodynamics parameters
+global CD_0 CL_max
+CD_0 = 0.225;
+CL_max = 1.5;
+
+
 % PROPULSION
 %   The specification engine and propellers. Those parameters will dominate
 %   the power aviliable, thrust aviliable. If you want to know more detail,
 %   please check the parameter explanation in the end of this file.
+global P eta_p
+P = 1.7 * 746;
+eta_p = 0.8;
 
+
+% Just return.
 removal = rho_inf;
 
 % Parameter explanation

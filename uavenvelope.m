@@ -1,4 +1,4 @@
-function removal = uavenvelope
+function removal = uavenvelope( V_stall, V_max )
 % uavenvelope.m
 %   First  edtion : 11-Apr-2015 15:29:09
 %   Lasted edtion : 11-Apr-2015 15:29:09
@@ -21,7 +21,7 @@ function removal = uavenvelope
 
 % Get the global parameters from parameters list.
 global SizH LenH CouF CouH
-global h_inf V_max V_stall
+global h_inf
 
 % Plot the figure.
 figure( CouF )
@@ -32,4 +32,4 @@ plot( V_max, h_inf );
 grid on
 xlabel( 'Velocity (m/s)' );
 ylabel( 'Altitude (m)' );
-axis( [ 10 30 0 5000 ] )
+axis( [ V_stall(1,1)-1 V_max(1,1)+1 0 5000 ] )

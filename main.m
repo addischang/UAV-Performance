@@ -22,19 +22,21 @@
 % Clear the command window and data.
 clear;clc;
 
+global P_Req
+
+
 % Input the desired height which you want.
-Height = linspace( 0, 7000, 3 );
+Height = linspace( 0, 4000, 5 );
 
 % Called function 'uavparameter'
 h = uavparameter( Height );
 
-uavstall
-uavloverd
-uavthrustrequired
-uavthrustaviliable
-uavpowerrequired
-uavenvelope
+% 
+vst = uavstall;
+uavloverd;
+tr = uavthrustrequired;
+vmax = uavthrustaviliable( tr );
+% k = uavpowerrequired;
+uavenvelope( vst, vmax );
 
 
-% uavstall;
-% uavloverd;
