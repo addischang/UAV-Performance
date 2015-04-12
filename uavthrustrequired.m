@@ -65,9 +65,13 @@ ylabel('Drag (N)')
 
 % Dispplay something useful.
 disp( [ ' Minimum darg is ' num2str( a ) '(N) at ' num2str( V_inf( 1, b ) ) '(m/s). ' ]  )
- 
+
+global T_Req
+T_Req = D;
+
 
 removal = D;
+
 
 
 
