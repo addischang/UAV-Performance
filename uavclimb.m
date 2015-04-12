@@ -29,9 +29,10 @@ global P_Req eta_p P T_A
 % max climb angle
 
 T_max =2.7*9.81;
-CL_CD_max = 20;
+CL_CD_max = 10;
 max_climb_thi = asin((T_max/W) - (1/CL_CD_max))
-V_thi_max = ( 4 * ( W/ (S_fw+ S_bw) ) *(1 / ( pi * e_fw * AR_fw )) )/( rho_inf * eta_p * (P/W) )
+k =1 / ( pi * e_fw * AR_fw )
+V_thi_max = ( 4 * ( W/ (S_fw +S_bw) *k) *(1 / ( pi * e_fw * AR_fw )) )/( rho_inf * eta_p * (P/W) )
 
 % max rate of climb
 
