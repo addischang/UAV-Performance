@@ -69,5 +69,5 @@ disp( [ ' Max thrust is ' num2str( a( 1, CouH ) ) '(N) while '...
           num2str( V_inf( 1, b ) ) '(m/s). ' ])
 
       ta = T_A;
-global T_A
+
 % Just return
