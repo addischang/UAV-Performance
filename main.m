@@ -29,15 +29,14 @@ Height = linspace( 0, 4000, 5 );
 uavparameter( Height );
 
 
-% 
-<<<<<<< HEAD
-% vst = uavstall;
-% ld = uavloverd;
-% tr = uavthrustrequired;
-% [ vmax ta ] = uavthrustaviliable( tr );
-% % k = uavpowerrequired;
-% % uavenvelope( vst, vmax );
-=======
+% <<<<<<< HEAD
+vst = uavstall;
+ld = uavloverd;
+tr = uavthrustrequired;
+[ vmax ta ] = uavthrustaviliable( tr );
+k = uavpowerrequired;
+uavenvelope( vst, vmax );
+%=======
 vst = uavstall;
 ld = uavloverd;
 tr = uavthrustrequired;
@@ -45,4 +44,6 @@ tr = uavthrustrequired;
 uavpowerrequired( tr );
 uavenvelope( vst, vmax );
 uavlevelturn( ld, ta );
->>>>>>> origin/master
+uavclimb;
+total_takeoff_distance ;
+%>>>>>>> origin/master
