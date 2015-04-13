@@ -1,4 +1,4 @@
-% function removal = uavclimb
+function removal = uavclimb
 % % UAVPARAMETER
 % %   First  edition : 12-Apr-2015 17:04:07
 % %   Lasted edition : 12-Apr-2015 17:04:07
@@ -18,7 +18,7 @@
 % %     breakfastho@yahoo.com.tw
 % %   Liu, Yu-Lin 
 % %     lightning.539418@gmail.com
-clc
+
 global SizH LenH CouF CouH
 global rho_inf h_inf g_inf T_inf
 global W S_fw S_bw b_fw b_bw AR_fw AR_bw e_fw e_bw
@@ -40,6 +40,9 @@ RC = V_inf .* ( RC1 - RC2(1,:) - RC3(1,:));
 figure( CouF )
 CouF = CouF + 1;
 plot(V_inf, RC, V_inf, ones( size( RC ) ), '-.r');
+title('R/C');
+xlabel('Velocity (m/s)')
+ylabel('R/C')
 grid on
 
 % max climb angle
@@ -48,7 +51,9 @@ CL_CD_max = 10;
 max_climb_thi = asin((T_max/W) - (1/CL_CD_max));
 
 %V_thi_max
-V_thi_max = ( 4* ( W(1,1)/ (S_fw +S_bw) *k)) /( rho_inf * eta_p * (P/W) )
+V_thi_max = ( 4* ( W(1,1)/ (S_fw +S_bw) *k)) /( rho_inf * eta_p * (P/W(1,1)) );
+V_thi_max = V_thi_max(1,1)
+
 
 % max rate of climb
  [ a b ] = max(RC);
