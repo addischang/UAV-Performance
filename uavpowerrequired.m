@@ -37,7 +37,7 @@ V_inf = linspace( 5, 25, 25 );
 global SizH LenH CouF CouH
 global rho_inf h_inf g_inf T_inf
 global W S_fw S_bw b_fw b_bw AR_fw AR_bw e_fw e_bw
-
+global T_Req
 
 % Declare the power required.
 for i = 1: 1: SizH( 2 )
