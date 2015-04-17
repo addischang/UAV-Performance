@@ -1,11 +1,11 @@
-function removal = uavpowerrequired( T_Req )
+function removal = uavrange
 % uavpowerrequired.m
-%   First  edition : 11-Apr-2015 14:22:05
-%   Lasted edition : 12-Apr-2015 00:57:51
+%   First  edition : 17-Apr-2015 21:45:31
+%   Lasted edition : 17-Apr-2015 21:45:31
 %   Lasted modify : Chang, Wei-Chieh
 %
 % DESCRIPTION
-%   This is the file calculating the power required.
+%   This is the file calculating the maximun range.
 %
 % COPYRIGHT
 %   Copyright 2015 UAV Laboratory, Dept. of Aerospace Engineering, Tamkang
@@ -41,22 +41,26 @@ global T_Req P_req
 
 % Declare the power required.
 for i = 1: 1: SizH( 2 )
-    P_req( i, : ) = T_Req( i, : ) .* V_inf;
+    
+    % The specifice distance value(SDV) is the value of distande for per each
+    % power. Thus, we can seek out the minimum SDV for maximum range.
+    SDV( i, : ) = V_inf ./ P_req( i, : );
+    
 end
 
 % Plot the figure.
 figure( CouF )
 CouF = CouF + 1;
-h = plot( V_inf, P_req( CouH, : ) );
+h = plot( V_inf, SDV( CouH, : ) );
 set( h, 'linewidth', 1.9 );
 grid on
 title( 'Power Required' );
 xlabel( 'Velocity (m/s)' );
-ylabel( 'Power (W)');
+ylabel( 'SDV (s*W/m)');
 
 
 
 % Just return.
 removal = 0;
 
-
+end

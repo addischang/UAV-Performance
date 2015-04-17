@@ -2,7 +2,8 @@ function removal = main( Input )
 
 % MAIN.M
 %   First  edtion : 05-Apr-2015 01:37:56
-%   Lasted edtion : 05-Apr-2015 01:37:56
+%   Lasted edtion : 17-Apr-2015 15:45:31
+%   Lasted modify : Chang, Wei-Chieh
 %
 % DESCRIPTION
 %   This file is the main file for "UAV-Performance". This is a software
@@ -35,6 +36,7 @@ ld = uavloverd;
 tr = uavthrustrequired;
 [ vmax ta ] = uavthrustaviliable( tr );
 uavpowerrequired( tr );
+uavrange
 uavenvelope( vst, vmax );
 uavlevelturn( ld, ta );
 uavclimb;
