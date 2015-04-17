@@ -49,15 +49,8 @@ rho_inf = atm( :, 6 );
 %   The specification of aircraft which we want to analysis. Those data are
 %   necessary for performance analysis. If you want to know more detail,
 %   please check the parameter explanation in the end of this file.
-global W S_fw S_bw b_fw b_bw AR_fw AR_bw e_fw e_bw
-mass = 18.75;
+global mass W S_fw S_bw b_fw b_bw AR_fw AR_bw e_fw e_bw
 W = mass * g_inf( 1, 1 );
-S_fw = 0.8929;
-S_bw = 0.8929;
-b_fw = 2.5;
-b_bw = 2.5;
-e_fw = 0.8;
-e_bw = 0.8;
 Cr_fw = 0.48979;
 Cr_bw = 0.48979;
 Ct_fw = 0.1959;

@@ -1,3 +1,5 @@
+function removal = main( Input )
+
 % MAIN.M
 %   First  edtion : 05-Apr-2015 01:37:56
 %   Lasted edtion : 05-Apr-2015 01:37:56
@@ -19,24 +21,15 @@
 %   Liu, Yu-Lin
 %     lightning.539418@gmail.com
 
-% Clear the command window and data.
-clear;clc;
-
-% Input the desired height which you want.
-Height = linspace( 0, 4000, 5 );
-
 % Called function 'uavparameter'
-uavparameter( Height );
+uavparameter( Input );
 
-
-% <<<<<<< HEAD
 vst = uavstall;
 ld = uavloverd;
 tr = uavthrustrequired;
 [ vmax ta ] = uavthrustaviliable( tr );
 k = uavpowerrequired;
 uavenvelope( vst, vmax );
-%=======
 vst = uavstall;
 ld = uavloverd;
 tr = uavthrustrequired;
@@ -45,5 +38,6 @@ uavpowerrequired( tr );
 uavenvelope( vst, vmax );
 uavlevelturn( ld, ta );
 uavclimb;
-total_takeoff_distance ;
-%>>>>>>> origin/master
+uavtakeoff
+
+end
