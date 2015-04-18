@@ -32,7 +32,7 @@ tr = uavthrustrequired;
 [ vmax ta ] = uavthrustaviliable( tr );
 [ minpr minpv ] = uavpowerrequired( tr );
 % uavenvelope( vst, vmax );
-uavlevelturn( ld, ta );
+% uavlevelturn( ld, ta );
 % uavclimb;
 tas = uavtakeoff;
 end

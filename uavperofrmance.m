@@ -22,7 +22,7 @@ function varargout = uavperofrmance(varargin)
 
 % Edit the above text to modify the response to help uavperofrmance
 
-% Last Modified by GUIDE v2.5 18-Apr-2015 17:15:00
+% Last Modified by GUIDE v2.5 18-Apr-2015 19:02:54
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -551,8 +551,7 @@ global mass W S_fw S_bw b_fw b_bw AR_fw AR_bw e_fw e_bw
 global rho_inf h_inf g_inf a_inf T_inf
 global retFig_P_req V_inf
 
-Height = get( handles.edit1, 'value' ) ;
-Height
+Height = str2double ( get( handles.edit1, 'string' ) );
 mass = str2double ( get( handles.edit2, 'string' ) );
 S_fw = str2double ( get( handles.edit3, 'string' ) );
 S_bw = str2double ( get( handles.edit4, 'string' ) );
@@ -627,3 +626,51 @@ if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgr
     
     
 end
+
+
+% --------------------------------------------------------------------
+function Untitled_1_Callback(hObject, eventdata, handles)
+% hObject    handle to Untitled_1 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% 
+msgbox( { [ ' Copy Right 2015'];
+    [ ' UAV Laboratory, Dept. of Aerospace Engineering'];
+    [ ' Tamkang University.' ] } , 'CopyRight' )
+
+
+
+% --------------------------------------------------------------------
+function Untitled_3_Callback(hObject, eventdata, handles)
+% hObject    handle to Untitled_3 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+
+
+
+% --------------------------------------------------------------------
+function Untitled_4_Callback(hObject, eventdata, handles)
+% hObject    handle to Untitled_4 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% 
+msgbox( { [ ' Update : 18-Apr-2015 ' ]; [ ' Version : 1.0 ' ] }  , 'Version' )
+
+% --------------------------------------------------------------------
+function Untitled_6_Callback(hObject, eventdata, handles)
+% hObject    handle to Untitled_6 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% 
+msgbox( { [ ' This is a software which provide performance parameters analysis for fixed-wing unmanned aerial vehicle. Those authors of this software are students from Dept. of Aerospace Engineering, Tamkang University. If you have any problems or any advices, plese sent the email to the following:' ]
+          [ '  ' ]; 
+          [ ' Chang, Wei-Chieh' ]; 
+          [ '        addischang1991@gmail.com ' ];
+          [ ' Huang, Kuan-Lin' ]; 
+          [ '        breakfastho@yahoo.com.tw ' ];
+          [ ' Liu, Yu-Lin' ];
+          [ '        lightning.539418@gmail.com' ]} , 'Authors Imformations' )
