@@ -2,7 +2,12 @@ function [ vst vmax minpr minpv tas  ] = main( Input )
 
 % MAIN.M
 %   First  edtion : 05-Apr-2015 01:37:56
+<<<<<<< HEAD
 %   Lasted edtion : 18-Apr-2015 13:59:14
+=======
+%   Lasted edtion : 17-Apr-2015 15:45:31
+%   Lasted modify : Chang, Wei-Chieh
+>>>>>>> origin/develope
 %
 % DESCRIPTION
 %   This file is the main file for "UAV-Performance". This is a software
@@ -34,6 +39,7 @@ vst = uavstall;
 ld = uavloverd;
 tr = uavthrustrequired;
 [ vmax ta ] = uavthrustaviliable( tr );
+<<<<<<< HEAD
 [ minpr minpv ] = uavpowerrequired( tr );
 % uavenvelope( vst, vmax );
 % vst = uavstall;
@@ -45,5 +51,19 @@ tr = uavthrustrequired;
 % uavlevelturn( ld, ta );
 % uavclimb;
 tas = uavtakeoff;
+=======
+k = uavpowerrequired;
+uavenvelope( vst, vmax );
+vst = uavstall;
+ld = uavloverd;
+tr = uavthrustrequired;
+[ vmax ta ] = uavthrustaviliable( tr );
+uavpowerrequired( tr );
+uavrange
+uavenvelope( vst, vmax );
+uavlevelturn( ld, ta );
+uavclimb;
+uavtakeoff
+>>>>>>> origin/develope
 
 end
