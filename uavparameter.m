@@ -21,6 +21,9 @@ function removal = uavparameter( InputHeight )
 %   Liu, Yu-Lin
 %     lightning.539418@gmail.com
 
+% Declare the range of velocity.
+global V_inf 
+V_inf = linspace( 0, 25, 50 );
 
 % COUNTER
 %   The counter is to declare scale or size for input parameters. It will
@@ -76,7 +79,9 @@ eta_p = 0.8;
 
 
 % Just return.
-removal = rho_inf;
+removal = 0;
+
+end
 
 % Parameter explanation
 % mass of aircraft : mass

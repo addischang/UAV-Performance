@@ -34,14 +34,10 @@ function [ aa bb ] = uavpowerrequired( input )
 % Get the global parameters from parameters list.
 global SizH LenH CouF CouH
 global rho_inf h_inf g_inf T_inf
-<<<<<<< HEAD
 global W S_fw S_bw b_fw b_bw AR_fw AR_bw e_fw e_bw V_inf
 global retFig_P_req
 T_Req = input;
-=======
-global W S_fw S_bw b_fw b_bw AR_fw AR_bw e_fw e_bw
-global T_Req P_req
->>>>>>> origin/develope
+
 
 % Declare the power required.
 for i = 1: 1: SizH( 2 )
@@ -50,7 +46,9 @@ for i = 1: 1: SizH( 2 )
     VminP( i, 1 ) = V_inf( 1, Loc( i, 1 ) );
 end
 
-<<<<<<< HEAD
+aa = Amp( CouH, 1  );
+bb = VminP( CouH, 1 );
+
 retFig_P_req = P_req;
 
 % % Plot the figure.
@@ -63,25 +61,9 @@ retFig_P_req = P_req;
 % xlabel( 'Velocity (m/s)' );
 % ylabel( 'Power (W)');
 % 
-aa = Amp( CouH, 1  );
-bb = VminP( CouH, 1 );
 
 end
-=======
-% Plot the figure.
-figure( CouF )
-CouF = CouF + 1;
-h = plot( V_inf, P_req( CouH, : ) );
-set( h, 'linewidth', 1.9 );
-grid on
-title( 'Power Required' );
-xlabel( 'Velocity (m/s)' );
-ylabel( 'Power (W)');
 
 
-
-% Just return.
-removal = 0;
->>>>>>> origin/develope
 
 

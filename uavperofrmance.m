@@ -381,9 +381,6 @@ set( handles.edit17, 'string', d);
 set( handles.edit18, 'string', e);
 
 
-
-size(retFig_P_req)
-
  handles.axes1 = plot( V_inf, retFig_P_req );
  xlabel( 'Velocity(m/s)' );
  ylabel( 'Power(W)' );
