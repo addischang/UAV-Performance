@@ -1,8 +1,8 @@
-function removal = main( Input )
+function [ vst vmax minpr minpv tas  ] = main( Input )
 
 % MAIN.M
 %   First  edtion : 05-Apr-2015 01:37:56
-%   Lasted edtion : 05-Apr-2015 01:37:56
+%   Lasted edtion : 18-Apr-2015 13:59:14
 %
 % DESCRIPTION
 %   This file is the main file for "UAV-Performance". This is a software
@@ -24,20 +24,26 @@ function removal = main( Input )
 % Called function 'uavparameter'
 uavparameter( Input );
 
+global V_inf 
+
+
+% Declare the range of velocity.
+V_inf = linspace( 0, 25, 50 );
+
 vst = uavstall;
 ld = uavloverd;
 tr = uavthrustrequired;
 [ vmax ta ] = uavthrustaviliable( tr );
-k = uavpowerrequired;
-uavenvelope( vst, vmax );
-vst = uavstall;
-ld = uavloverd;
-tr = uavthrustrequired;
-[ vmax ta ] = uavthrustaviliable( tr );
-uavpowerrequired( tr );
-uavenvelope( vst, vmax );
-uavlevelturn( ld, ta );
-uavclimb;
-uavtakeoff
+[ minpr minpv ] = uavpowerrequired( tr );
+% uavenvelope( vst, vmax );
+% vst = uavstall;
+% ld = uavloverd;
+% tr = uavthrustrequired;
+% [ vmax ta ] = uavthrustaviliable( tr );
+% uavpowerrequired( tr );
+% uavenvelope( vst, vmax );
+% uavlevelturn( ld, ta );
+% uavclimb;
+tas = uavtakeoff;
 
 end

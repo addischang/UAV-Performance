@@ -24,11 +24,10 @@ function removal = uavthrustrequired
 global SizH LenH CouF CouH
 global rho_inf h_inf g_inf T_inf
 global W S_fw S_bw b_fw b_bw AR_fw AR_bw e_fw e_bw
-global CD_0 
+global CD_0 T_Req V_inf
 
 
 % Declare range. 
-V_inf = linspace( 5, 25, 25 );
 Q_inf = 0.5 .* rho_inf * V_inf.^2; 
 K = 1 / ( pi * e_fw * AR_fw );
 
@@ -44,30 +43,27 @@ CD = CD_0 + K * CL.^2;
 D_0 = Q_inf .* ( S_fw + S_bw ) .* CD_0;
 D_L = Q_inf .* ( S_fw + S_bw ) .* K .* CL.^2;
 D = D_0 + D_L;
-
+T_Req = D;
 
 % Seek the minimum drag. 
 [ a b ] = min( D( CouH, : ) );
 
 
-% Plot the figure.
-figure( CouF )
-CouF = CouF + 1;
-h = plot( V_inf, D_0( CouH, : ), '--m', ...
-          V_inf, D_L( CouH, : ), '--r', ... 
-          V_inf, D( CouH, : )  );
-set( h, 'linewidth', 1.9 );
-grid on
-legend('D_{0}','D_{i}','D')
-xlabel('Velocity (m/s)')
-ylabel('Drag (N)')
-
-
-% Dispplay something useful.
-disp( [ ' Minimum darg is ' num2str( a ) '(N) at ' num2str( V_inf( 1, b ) ) '(m/s). ' ]  )
-
-global T_Req
-T_Req = D;
+% % Plot the figure.
+% figure( CouF )
+% CouF = CouF + 1;
+% h = plot( V_inf, D_0( CouH, : ), '--m', ...
+%           V_inf, D_L( CouH, : ), '--r', ... 
+%           V_inf, D( CouH, : )  );
+% set( h, 'linewidth', 1.9 );
+% grid on
+% legend('D_{0}','D_{i}','D')
+% xlabel('Velocity (m/s)')
+% ylabel('Drag (N)')
+% 
+% 
+% % Dispplay something useful.
+% disp( [ ' Minimum darg is ' num2str( a ) '(N) at ' num2str( V_inf( 1, b ) ) '(m/s). ' ]  )
 
 
 removal = D;

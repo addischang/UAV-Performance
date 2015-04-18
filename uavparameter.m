@@ -63,7 +63,7 @@ AR_bw = b_bw^2 / S_bw;
 %   The aerodynamics parameters
 global CD_0 CL_max
 CD_0 = 0.0125;
-CL_max = 1.5;
+CL_max = 1.25;
 
 
 % PROPULSION

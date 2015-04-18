@@ -1,4 +1,4 @@
-function removal = uavtakeoff
+function total_takeoff_distance = uavtakeoff
 % UAVTAKEOFF
 %   This is a file to compute takeoff distance for fixed-wing UAV.
 % 

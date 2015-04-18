@@ -40,32 +40,32 @@ for i = 1: 1: SizH( 2 )
     Phi( i, : ) = acos( 1 ./  N( i, : ) );
 end
 
-% Plot the figure.
-figure( CouF )
-CouF = CouF + 1;
-plot( V_inf, Phi( CouH, : ) )
-grid on
-title('The bank angle of level turn');
-xlabel('Velocity (m/s)')
-ylabel('Phi (rad)')
-
-% Plot the figure.
-figure( CouF )
-CouF = CouF + 1;
-plot( V_inf, N( CouH, : ) )
-grid on
-title('The load factor of level turn');
-xlabel('Velocity (m/s)')
-ylabel('Load factor')
-
-% Plot the figure.
-figure( CouF )
-CouF = CouF + 1;
-plot( V_inf, R( CouH, : ) )
-grid on
-title('The radious of level turn');
-xlabel('Velocity (m/s)')
-ylabel('Radious (m)')
+% % Plot the figure.
+% figure( CouF )
+% CouF = CouF + 1;
+% plot( V_inf, Phi( CouH, : ) )
+% grid on
+% title('The bank angle of level turn');
+% xlabel('Velocity (m/s)')
+% ylabel('Phi (rad)')
+% 
+% % Plot the figure.
+% figure( CouF )
+% CouF = CouF + 1;
+% plot( V_inf, N( CouH, : ) )
+% grid on
+% title('The load factor of level turn');
+% xlabel('Velocity (m/s)')
+% ylabel('Load factor')
+% 
+% % Plot the figure.
+% figure( CouF )
+% CouF = CouF + 1;
+% plot( V_inf, R( CouH, : ) )
+% grid on
+% title('The radious of level turn');
+% xlabel('Velocity (m/s)')
+% ylabel('Radious (m)')
 
 
 % 

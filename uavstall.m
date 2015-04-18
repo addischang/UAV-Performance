@@ -1,4 +1,4 @@
-function removal = uavstall
+function V_stall = uavstall
 % UAVSTALL.M
 %   First  edtion : 05-Apr-2015 22:55:27
 %   Lasted edtion : 08-Apr-2015 21:47:54
@@ -23,24 +23,23 @@ function removal = uavstall
 global SizH LenH CouF CouH
 global rho_inf h_inf g_inf T_inf
 global W S_fw S_bw b_fw b_bw AR_fw AR_bw e_fw e_bw
+global CD_0 CL_max
 
 % The main algorithm.
-CL = 1.25;
-V_stall= sqrt( 2 * W( 1, 1 ) ./  ( rho_inf .* ( S_fw + S_bw ) .* CL ) );
+V_stall= sqrt( 2 * W( 1, 1 ) ./  ( rho_inf .* ( S_fw + S_bw ) .* CL_max ) );
 
-% Plot the figure.
-figure( CouF )
-CouF = CouF + 1;
-f = plot( V_stall, h_inf, '-o' );
-set( f, 'linewidth', 1.7 );
-xlabel( 'Velocity (m/s)' );
-ylabel( 'Altitude (m)' );
-legend( 'Stall Velocity' );
-grid on
-
-% Display some useful informations at command windows.
-disp( [ 'The stall velocity at ' num2str( V_stall( CouH, 1 ) ) '(m/s) at ' ...
-        num2str( h_inf( CouH, 1 ) ) ' (m) height ' ] )
+% % Plot the figure.
+% figure( CouF )
+% CouF = CouF + 1;
+% f = plot( V_stall, h_inf, '-o' );
+% set( f, 'linewidth', 1.7 );
+% xlabel( 'Velocity (m/s)' );
+% ylabel( 'Altitude (m)' );
+% legend( 'Stall Velocity' );
+% grid on
+% 
+% % Display some useful informations at command windows.
+% disp( [ 'The stall velocity at ' num2str( V_stall( CouH, 1 ) ) '(m/s) at ' ...
+%         num2str( h_inf( CouH, 1 ) ) ' (m) height ' ] )
     
-% Just return 0    
-removal = V_stall;
+end

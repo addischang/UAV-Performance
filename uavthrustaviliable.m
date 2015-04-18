@@ -1,4 +1,4 @@
-function [ V_max ta ]=  uavthrustaviliable( T_Req )
+function [ V_max ta ]=  uavthrustaviliable( input )
 % uavthrustaviliable.m
 %   First  edtion : 08-Apr-2015 20:38:27
 %   Lasted edtion : 08-Apr-2015 21:47:54
@@ -24,11 +24,12 @@ function [ V_max ta ]=  uavthrustaviliable( T_Req )
 global SizH LenH CouF CouH
 global rho_inf h_inf g_inf T_inf
 global W S_fw S_bw b_fw b_bw AR_fw AR_bw e_fw e_bw
-global P eta_p
-global T_Req
+global P eta_p V_inf
 
-% Declare the range of velocity.
-V_inf = linspace( 5, 25, 25 );
+
+T_Req =input;
+
+
 
 
 % Compute the actual power aviliable at different height. Notice that, the
@@ -47,14 +48,14 @@ for i = 1: SizH(1,2)
 end
  
 
-% Plot the figure.
-figure( CouF )
-CouF = CouF + 1;
-plot( V_inf, T_Req(CouH, : ), V_inf, T_A(CouH, : ),'--m' );
-grid on
-legend('T_{Req}','T_{A}')
-xlabel('Velocity (m/s)')
-ylabel('Thrust (N)')
+% % Plot the figure.
+% figure( CouF )
+% CouF = CouF + 1;
+% plot( V_inf, T_Req(CouH, : ), V_inf, T_A(CouH, : ),'--m' );
+% grid on
+% legend('T_{Req}','T_{A}')
+% xlabel('Velocity (m/s)')
+% ylabel('Thrust (N)')
 
 
 % % Plot the figure.
@@ -64,10 +65,10 @@ ylabel('Thrust (N)')
 
 
 
-% Dispplay something useful.
-disp( [ ' Max thrust is ' num2str( a( 1, CouH ) ) '(N) while '...
-          num2str( V_inf( 1, b ) ) '(m/s). ' ])
+% % Dispplay something useful.
+% disp( [ ' Max thrust is ' num2str( a( 1, CouH ) ) '(N) while '...
+%           num2str( V_inf( 1, b ) ) '(m/s). ' ])
 
-      ta = T_A;
+ta = T_A;
 
 % Just return
