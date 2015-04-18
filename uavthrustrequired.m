@@ -40,8 +40,8 @@ CD = CD_0 + K * CL.^2;
 
 
 % Main algorithm.
-D_0 = Q_inf .* ( S_fw + S_bw ) .* CD_0;
-D_L = Q_inf .* ( S_fw + S_bw ) .* K .* CL.^2;
+D_0 = Q_inf .* ( S_fw + S_bw ) * CD_0;
+D_L = Q_inf .* ( S_fw + S_bw ) * K .* CL.^2;
 D = D_0 + D_L;
 T_Req = D;
 

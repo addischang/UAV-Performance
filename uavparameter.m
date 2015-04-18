@@ -1,4 +1,4 @@
-function removal = uavparameter( InputHeight )
+function uavparameter( InputHeight )
 % UAVPARAMETER
 %   First  edition : 05-Apr-2015 01:37:56
 %   Lasted edition : 12-Apr-2015 00:57:51
@@ -23,7 +23,7 @@ function removal = uavparameter( InputHeight )
 
 % Declare the range of velocity.
 global V_inf 
-V_inf = linspace( 0, 25, 50 );
+V_inf = linspace( 5, 35, 50 );
 
 % COUNTER
 %   The counter is to declare scale or size for input parameters. It will
@@ -74,12 +74,12 @@ CL_max = 1.25;
 %   the power aviliable, thrust aviliable. If you want to know more detail,
 %   please check the parameter explanation in the end of this file.
 global P eta_p
-P = 1.7 * 746;
+Hp = 1.7;
+P = Hp * 0.745699872 * 1000 * 0.8;
 eta_p = 0.8;
 
 
-% Just return.
-removal = 0;
+
 
 end
 

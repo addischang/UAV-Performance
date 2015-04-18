@@ -84,15 +84,11 @@ function edit1_Callback(hObject, eventdata, handles)
 
 % Get the string from handles and convege to number. It the string can not
 % converge to number, it will return an empty
-ed1 = str2num( get( handles.edit1, 'string' ) );
+ed1 = str2num( get( handles.edit3, 'string' ) );
 
-% Check the handles. The edit only accept real and positive number.
+% C
 if  isempty( ed1 ) == 1 
-    msgbox( ' You must input real number. ', 'Error Message', 'error' );
-    set( handles.edit1, 'string', [] );
-elseif sign( ed1 ) == -1
-    msgbox( ' You must input positive value. ', 'Error Message', 'error' );
-    set( handles.edit1, 'string', [] );
+    msgbox( 'Fuck you, ', 'Error Message', 'error' );
 end
 
 % --- Executes during object creation, after setting all properties.
@@ -117,18 +113,6 @@ function edit2_Callback(hObject, eventdata, handles)
 % Hints: get(hObject,'String') returns contents of edit2 as text
 %        str2double(get(hObject,'String')) returns contents of edit2 as a double
 
-% Get the string from handles and convege to number. It the string can not
-% converge to number, it will return an empty
-ed2 = str2num( get( handles.edit2, 'string' ) );
-
-% Check the handles. The edit only accept real and positive number.
-if  isempty( ed2 ) == 1 
-    msgbox( ' You must input real number. ', 'Error Message', 'error' );
-    set( handles.edit2, 'string', []  );
-elseif sign( ed2 ) == -1
-    msgbox( ' You must input positive value. ', 'Error Message', 'error' );
-    set( handles.edit2, 'string', []  );
-end
 
 % --- Executes during object creation, after setting all properties.
 function edit2_CreateFcn(hObject, eventdata, handles)
@@ -151,18 +135,9 @@ function edit3_Callback(hObject, eventdata, handles)
 
 % Hints: get(hObject,'String') returns contents of edit3 as text
 %        str2double(get(hObject,'String')) returns contents of edit3 as a double
-
-% Get the string from handles and convege to number. It the string can not
-% converge to number, it will return an empty
 ed3 = str2num( get( handles.edit3, 'string' ) );
-
-% Check the handles. The edit only accept real and positive number.
-if  isempty( ed3 ) == 1 
-    msgbox( ' You must input real number. ', 'Error Message', 'error' );
-    set( handles.edit3, 'string', []  );
-elseif sign( ed3 ) == -1
-    msgbox( ' You must input positive value. ', 'Error Message', 'error' );
-    set( handles.edit3, 'string', []  );
+if isfloat( ed3 ) <= 0
+    msgbox( 'Fuck you, ', 'Error Message', 'error' );
 end
 
 
@@ -187,18 +162,10 @@ function edit4_Callback(hObject, eventdata, handles)
 
 % Hints: get(hObject,'String') returns contents of edit4 as text
 %        str2double(get(hObject,'String')) returns contents of edit4 as a double
-
-% Get the string from handles and convege to number. It the string can not
-% converge to number, it will return an empty
 ed4 = str2num( get( handles.edit4, 'string' ) );
 
-% Check the handles. The edit only accept real and positive number.
-if  isempty( ed4 ) == 1 
-    msgbox( ' You must input real number. ', 'Error Message', 'error' );
-    set( handles.edit4, 'string', []  );
-elseif sign( ed4 ) == -1
-    msgbox( ' You must input positive value. ', 'Error Message', 'error' );
-    set( handles.edit4, 'string', []  );
+if  sign(ed4) == -1 
+    msgbox( 'Fuck you, ', 'Error Message', 'error' );
 end
 
 % --- Executes during object creation, after setting all properties.
@@ -223,17 +190,9 @@ function edit5_Callback(hObject, eventdata, handles)
 % Hints: get(hObject,'String') returns contents of edit5 as text
 %        str2double(get(hObject,'String')) returns contents of edit5 as a double
 
-% Get the string from handles and convege to number. It the string can not
-% converge to number, it will return an empty
 ed5 = str2num( get( handles.edit5, 'string' ) );
-
-% Check the handles. The edit only accept real and positive number.
-if  isempty( ed5 ) == 1 
-    msgbox( ' You must input real number. ', 'Error Message', 'error' );
-    set( handles.edit5, 'string', []  );
-elseif sign( ed5 ) == -1
-    msgbox( ' You must input positive value. ', 'Error Message', 'error' );
-    set( handles.edit5, 'string', []  );
+if isfloat( ed5 ) <= 0
+    msgbox( 'Fuck you, ', 'Error Message', 'error' );
 end
 
 
@@ -260,18 +219,6 @@ function edit6_Callback(hObject, eventdata, handles)
 % Hints: get(hObject,'String') returns contents of edit6 as text
 %        str2double(get(hObject,'String')) returns contents of edit6 as a double
 
-% Get the string from handles and convege to number. It the string can not
-% converge to number, it will return an empty
-ed6 = str2num( get( handles.edit6, 'string' ) );
-
-% Check the handles. The edit only accept real and positive number.
-if  isempty( ed6 ) == 1 
-    msgbox( ' You must input real number. ', 'Error Message', 'error' );
-    set( handles.edit6, 'string', []  );
-elseif sign( ed6 ) == -1
-    msgbox( ' You must input positive value. ', 'Error Message', 'error' );
-    set( handles.edit6, 'string', []  );
-end
 
 % --- Executes during object creation, after setting all properties.
 function edit6_CreateFcn(hObject, eventdata, handles)
@@ -295,18 +242,6 @@ function edit7_Callback(hObject, eventdata, handles)
 % Hints: get(hObject,'String') returns contents of edit7 as text
 %        str2double(get(hObject,'String')) returns contents of edit7 as a double
 
-% Get the string from handles and convege to number. It the string can not
-% converge to number, it will return an empty
-ed7 = str2num( get( handles.edit7, 'string' ) );
-
-% Check the handles. The edit only accept real and positive number.
-if  isempty( ed7 ) == 1 
-    msgbox( ' You must input real number. ', 'Error Message', 'error' );
-    set( handles.edit7, 'string', []  );
-elseif sign( ed7 ) == -1
-    msgbox( ' You must input positive value. ', 'Error Message', 'error' );
-    set( handles.edit7, 'string', []  );
-end
 
 % --- Executes during object creation, after setting all properties.
 function edit7_CreateFcn(hObject, eventdata, handles)
@@ -329,18 +264,6 @@ function edit8_Callback(hObject, eventdata, handles)
 % Hints: get(hObject,'String') returns contents of edit8 as text
 %        str2double(get(hObject,'String')) returns contents of edit8 as a double
 
-% Get the string from handles and convege to number. It the string can not
-% converge to number, it will return an empty
-ed8 = str2num( get( handles.edit8, 'string' ) );
-
-% Check the handles. The edit only accept real and positive number.
-if  isempty( ed8 ) == 1 
-    msgbox( ' You must input real number. ', 'Error Message', 'error' );
-    set( handles.edit8, 'string', []  );
-elseif sign( ed8 ) == -1
-    msgbox( ' You must input positive value. ', 'Error Message', 'error' );
-    set( handles.edit8, 'string', []  );
-end
 
 % --- Executes during object creation, after setting all properties.
 function edit8_CreateFcn(hObject, eventdata, handles)
@@ -353,7 +276,6 @@ function edit8_CreateFcn(hObject, eventdata, handles)
 if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
     set(hObject,'BackgroundColor','white');
 end
-
 
 
 function edit11_Callback(hObject, eventdata, handles)
